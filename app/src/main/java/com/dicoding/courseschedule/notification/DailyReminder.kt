@@ -39,6 +39,8 @@ class DailyReminder : BroadcastReceiver() {
         val intent = Intent(context, HomeActivity::class.java)
         return TaskStackBuilder.create(context).run {
             addNextIntentWithParentStack(intent)
+            //support android S
+            getPendingIntent(0, PendingIntent.FLAG_IMMUTABLE)
             getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
         }
     }
