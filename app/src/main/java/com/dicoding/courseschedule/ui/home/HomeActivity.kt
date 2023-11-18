@@ -7,8 +7,10 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.dicoding.courseschedule.R
 import com.dicoding.courseschedule.data.Course
+import com.dicoding.courseschedule.ui.add.AddCourseActivity
 import com.dicoding.courseschedule.ui.list.ListActivity
 import com.dicoding.courseschedule.ui.setting.SettingsActivity
 import com.dicoding.courseschedule.util.DayName
@@ -26,6 +28,9 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         supportActionBar?.title = resources.getString(R.string.today_schedule)
+
+        val factory = HomeViewModelFactory.createFactory(this)
+        viewModel = ViewModelProvider(this, factory).get(HomeViewModel::class.java)
 
         viewModel.course.observe(this){
             showTodaySchedule(it)
@@ -76,7 +81,7 @@ class HomeActivity : AppCompatActivity() {
 
             R.id.action_settings -> Intent(this, SettingsActivity::class.java)
             R.id.action_list -> Intent(this, ListActivity::class.java)
-//            R.id.action_add -> Intent(this, AddCourseActivity::class.java)
+            R.id.action_add -> Intent(this, AddCourseActivity::class.java)
             else -> null
         } ?: return super.onOptionsItemSelected(item)
 

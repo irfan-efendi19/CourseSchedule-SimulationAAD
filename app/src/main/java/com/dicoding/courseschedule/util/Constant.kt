@@ -12,3 +12,6 @@ private val SINGLE_EXECUTOR = Executors.newSingleThreadExecutor()
 fun executeThread(f: () -> Unit) {
     SINGLE_EXECUTOR.execute(f)
 }
+
+const val START = "START"
+const val END = "END"

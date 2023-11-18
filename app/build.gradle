@@ -34,12 +34,22 @@ android {
     buildFeatures {
         viewBinding true
     }
+    sourceSets {
+        main {
+            resources {
+                srcDirs 'src\\main\\resources', 'src\\main\\test'
+            }
+        }
+    }
 }
 
 dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
     implementation 'androidx.preference:preference-ktx:1.2.0'
+    implementation 'junit:junit:4.13.2'
+    implementation 'androidx.test.ext:junit-ktx:1.1.5'
+    testImplementation 'junit:junit:4.13.2'
     ext {
         core_version = "1.10.1"
         appcompat_version = "1.6.1"
@@ -74,6 +84,7 @@ dependencies {
     implementation "androidx.work:work-runtime-ktx:$work_version"
 
     testImplementation "junit:junit:$junit_version"
+    androidTestImplementation 'androidx.test:rules:1.5.0'
     androidTestImplementation "androidx.test:runner:$runner_version"
     androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
