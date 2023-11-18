@@ -52,7 +52,6 @@ class HomeActivity : AppCompatActivity() {
             cardHome.setNote(course.note)
             cardHome.setTime(time)
             cardHome.setRemainingTime(remainingTime)
-
         }
 
         findViewById<TextView>(R.id.tv_empty_home).visibility =

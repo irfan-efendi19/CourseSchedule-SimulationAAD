@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
@@ -72,15 +73,14 @@ class AddCourseActivity : AppCompatActivity(), TimePickerFragment.DialogTimeList
         }
     }
 
-    fun showDatePickerStart() {
+    fun showDatePickerStart(view: View) {
         val dialogFragment = TimePickerFragment()
         dialogFragment.show(supportFragmentManager, START)
     }
-    fun showDatePickerEnd() {
+    fun showDatePickerEnd(view: View) {
         val dialogFragment = TimePickerFragment()
         dialogFragment.show(supportFragmentManager, END)
     }
-
     override fun onDialogTimeSet(tag: String?, hour: Int, minute: Int) {
         val time = "$hour:$minute"
         if (tag == START){
